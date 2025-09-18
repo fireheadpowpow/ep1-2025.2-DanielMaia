@@ -70,11 +70,11 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 O sistema deve simular o funcionamento de um hospital com cadastro de *pacientes, médicos, especialidades, consultas e internações*.  
 
-1. *Cadastro de Pacientes*  
+1. *Cadastro de Pacientes*  ✔️
    - Pacientes comuns e pacientes especiais (ex: com plano de saúde).  
-   - Cada paciente deve ter: nome, CPF, idade, histórico de consultas e internações.  
+   - Cada paciente deve ter: nome, CPF, idade, histórico de consultas e internações.                                   
 
-2. *Cadastro de Médicos*  
+2. *Cadastro de Médicos*  ✔️
    - Médicos podem ter especialidades (ex: cardiologia, pediatria, ortopedia).  
    - Cada médico deve ter: nome, CRM, especialidade, custo da consulta e agenda de horários.  
 
