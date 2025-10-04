@@ -10,10 +10,10 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Dados do Aluno
 
-- **Nome completo:** [Preencher aqui]
-- **Matrícula:** [Preencher aqui]
-- **Curso:** [Preencher aqui]
-- **Turma:** [Preencher aqui]
+- **Nome completo:** Daniel Valle Rodrigues Maia
+- **Matrícula:** 251019780
+- **Curso:** Engenharias
+- **Turma:** FGA0158 - Turma 02
 
 ---
 
