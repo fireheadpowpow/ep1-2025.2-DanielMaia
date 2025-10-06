@@ -2,13 +2,16 @@ package hospital.classes;
 
 public class Medico{
     private String nome;
+    private String sobrenome;
+    private String nomeCompleto;
     private int crm;
     private String especialidade;
     private double custo_da_consulta;
     private String[][] agenda_de_horarios;
 
-    public Medico(String nome, int crm, String especialidade, double custo_da_consulta, String[][] agenda_de_horarios){
+    public Medico(String nome, String sobrenome, int crm, String especialidade, double custo_da_consulta, String[][] agenda_de_horarios){
         this.setNome(nome);
+        this.setSobrenome(sobrenome);
         this.setCrm(crm);
         this.setEspecialidade(especialidade);
         this.setCusto_da_consulta(custo_da_consulta);
@@ -20,16 +23,32 @@ public class Medico{
             throw new IllegalArgumentException("Nome Inválido!!");
         }
         else{
-            this.nome = nome;
+            String nomeFormatado = nome.substring(0, 1).toUpperCase();
+            String restante = nome.substring(1).toLowerCase();
+            this.nome = nomeFormatado + restante;
         }
     }
+
+    public void setSobrenome(String sobrenome){
+        if(sobrenome.isBlank()){
+            throw new IllegalArgumentException("Nome Inválido!!");
+        }
+        else{
+            String sobrenomeFormatado = sobrenome.substring(0, 1).toUpperCase();
+            String restante2 = sobrenome.substring(1).toLowerCase();
+            this.sobrenome = sobrenomeFormatado + restante2;
+        }
+    }
+
 
     public void setEspecialidade(String especialidade){
         if (especialidade.isBlank()){
             throw new IllegalArgumentException("Especialidade Inválida!!");
         }
         else{
-            this.especialidade = especialidade;
+            String especialidadeFormatada = especialidade.substring(0, 1).toUpperCase();
+            String restante = especialidade.substring(1).toLowerCase();
+            this.especialidade = especialidadeFormatada + restante;
         }
     }
 
@@ -52,8 +71,9 @@ public class Medico{
     }
 
 
-    public String getNome(){
-        return nome;
+
+    public String getNomeCompleto(){
+        return nome + sobrenome;
     }
     public int getCrm(){
         return crm;

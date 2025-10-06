@@ -42619,3 +42619,22 @@ Paciente comum: sdfsdfsafdasfdsfd | CPF: null | Idade: 0
 Paciente comum: fdsafsdf | CPF: null | Idade: 0
 Paciente comum: asdfsafdasfd | CPF: null | Idade: 0
 Paciente comum: sdgdgsfdgsf | CPF: null | Idade: 0
+Paciente comum: asdfasdfd | CPF: 423.424.424-44 | Idade: 43
+Paciente comum: dgfdfgssdfgsdfg | CPF: 432.434.434-22 | Idade: 32
+Paciente comum: dsfgdgsfdsg | CPF: 342.432.242-44 | Idade: 43
+Paciente comum: dfgdfgdfg | CPF: 345.345.345-45 | Idade: 54
+Paciente comum: gfddgfdfgs | CPF: 423.424.424-33 | Idade: 43
+Paciente comum: sdfgdfsgsdfdfg | CPF: 323.323.323-22 | Idade: 32
+Paciente comum: sdffsdfsdsdfa | CPF: 323.323.323-33 | Idade: 32
+Paciente comum: gdfgdfdfggfsed | CPF: 424.424.424-22 | Idade: 32
+Paciente comum: DADADAADDADA | CPF: 432.432.423-44 | Idade: 43
+Paciente comum: fdgdfdfgdfgs | CPF:  | Idade: 43
+Paciente comum:  | CPF: 432.424.424-44 | Idade: 43
+Paciente comum: fssfdfsdfsdfsd | CPF: 432.424.424-44 | Idade: 42
+Paciente comum: sfgsfgdsfg | CPF: 424.422.424-22 | Idade: 32
+Paciente comum: sdfsfdsfsfdsfdsfsfdfssfd | CPF: 243.424.424-33 | Idade: 43
+Paciente comum: sdfsfdsfd | CPF: 434.434.434-33 | Idade: 34
+Paciente comum: sadffdsz | CPF: 424.424.424-33 | Idade: 43
+Paciente comum: gfdgf | CPF: 432.424.424-33 | Idade: 32
+Paciente comum: sfdaggfd | CPF: 432.424.244-33 | Idade: 32
+Paciente comum: ffssfdfds | CPF: 424.424.424-33 | Idade: 43
