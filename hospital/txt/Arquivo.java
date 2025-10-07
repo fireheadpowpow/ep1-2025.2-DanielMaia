@@ -7,12 +7,17 @@ import java.io.PrintWriter;
 import hospital.classes.Medico;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class Arquivo {
 
@@ -86,7 +91,7 @@ public class Arquivo {
                     } else if (j < 12) {
                         linhaAgenda.append("Domingo - " + j + "am: ").append(agenda[i][j]).append(" | ");
                     } else{
-                        linhaAgenda.append("Domingo - " + j + "pm: ").append(agenda[i][j]).append("|");
+                        linhaAgenda.append("Domingo - " + j + "pm: ").append(agenda[i][j]).append(" | ");
                     }
                     if(i == 6 && j == 18){
                         linhaAgenda.append("\n\n");
@@ -102,37 +107,108 @@ public class Arquivo {
 
     }
 
+
     public static void lerArquivoScanner(String dias, String especialidade_ou_medico) {
-        try {
-            File arquivo = new File("medicos.txt");
-            Scanner leitor = new Scanner(arquivo);
 
-            String[] diasVetor = dias.split(", ");
-            for(int i = 0; i < 7; i++){
-               String diasFormatados = diasVetor[i].substring(0, 1).toUpperCase();
-                while (leitor.hasNextLine()) {
-                    String linha = leitor.nextLine();
-                    if (linha.startsWith("ID: ") && linha.contains(diasFormatados)) {
-                        System.out.println(linha);
-                        break;
+        List<String> diasLista = new ArrayList<>(Arrays.asList(dias.split(", ")));
+        List<String> especialidadeLista = new ArrayList<>(Arrays.asList(especialidade_ou_medico.split(", ")));
+
+        for (String dia : diasLista) {
+            for (String especialidade : especialidadeLista) {
+
+                String diaFormatado = formatarPrimeiraLetraMaiuscula(dia);
+                String especialidadeFormatada = formatarPrimeiraLetraMaiuscula(especialidade);
+
+                try {
+                    File arquivo = new File("medicos.txt");
+                    Scanner leitor = new Scanner(arquivo);
+
+                    System.out.println("---- BUSCANDO POR: " + especialidadeFormatada + " em " + diaFormatado + " ----");
+
+                    // Sinalizadores e variáveis de captura
+                    StringBuilder blocoMedico = new StringBuilder();
+                    boolean buscandoEspecialidadeNaLinhaSeguinte = false;
+                    boolean diaDisponivel = false;
+                    boolean encontrado = false;
+
+                    // CRUCIAL: Reinicia o Scanner para cada busca
+                    while (leitor.hasNextLine()) {
+                        String linha = leitor.nextLine();
+
+                        // 1. INÍCIO DO BLOCO (Sempre a linha "INFORMAÇÕES")
+                        if (linha.startsWith("INFORMAÇÕES")) {
+                            // Se encontrar o início de um novo bloco, limpa o anterior e inicia a busca.
+                            blocoMedico.setLength(0); // Limpa o bloco anterior
+                            blocoMedico.append(linha).append("\n");
+                            buscandoEspecialidadeNaLinhaSeguinte = true;
+                            continue;
+                        }
+
+                        // 2. BUSCA PELA ESPECIALIDADE (Logo após a linha INFORMAÇÕES)
+                        if (buscandoEspecialidadeNaLinhaSeguinte) {
+
+                            // Verifica se a linha (que é a linha dos dados) contém a especialidade
+                            if (linha.contains("|Especialidade: ") && linha.contains(especialidadeFormatada)) {
+
+                                // Encontrado o médico!
+                                encontrado = true;
+                                // Adiciona esta linha (Nome, CRM, Especialidade) ao bloco
+                                blocoMedico.append(linha).append("\n");
+
+                                // Desativa o sinalizador de busca e continua para a agenda
+                                buscandoEspecialidadeNaLinhaSeguinte = false;
+                                continue;
+                            } else {
+                                // Se a especialidade NÃO foi encontrada, este médico não serve.
+                                buscandoEspecialidadeNaLinhaSeguinte = false;
+                                continue; // Pula o resto da lógica para este médico
+                            }
+                        }
+
+                        // 3. BUSCA PELA AGENDA (Após a linha do bloco)
+                        // Procura a linha que começa com "ID:" E contém o dia formatado.
+                        if (encontrado && linha.startsWith("ID:") && linha.contains(diaFormatado)) {
+
+                            // Se encontrar a agenda para o dia, adiciona ao bloco e confirma a disponibilidade
+                            blocoMedico.append(linha).append("\n");
+                            diaDisponivel = true;
+
+                            // Interrompe a busca no arquivo, pois encontrou todas as informações
+                            break;
+                        }
+
+                        // 4. Captura linhas restantes do bloco de informações (se necessário)
+                        if (encontrado && !linha.startsWith("ID:")) {
+                            blocoMedico.append(linha).append("\n");
+                        }
+
+                    } // Fim do while
+
+                    // 5. IMPRESSÃO DO RESULTADO
+                    if (encontrado && diaDisponivel) { // Verifica se encontrou o médico E o dia
+                        System.out.println("\n--- INFORMAÇÕES DO MÉDICO ENCONTRADO ---");
+                        System.out.println(blocoMedico.toString());
+                    } else {
+                        System.out.println("Nenhum médico encontrado com a especialidade/dia: " + especialidadeFormatada + " em " + diaFormatado);
                     }
-                    if(linha.startsWith("ID: ") && linha.contains(especialidade_ou_medico)){
-                        System.out.println(linha);
-                        break;
-                    }
+
+                    leitor.close();
+
+                } catch (FileNotFoundException e) {
+                    System.out.println("Erro: Arquivo 'medicos.txt' não encontrado.");
                 }
-
             }
-
-
-            leitor.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
-}
 
+    private static String formatarPrimeiraLetraMaiuscula(String s) {
+        if (s == null || s.isBlank() || s.length() == 0) {
+            return "";
+        }
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+    }
+}
 
 
 

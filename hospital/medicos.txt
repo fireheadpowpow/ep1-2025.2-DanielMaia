@@ -1,11 +1,12 @@
-ID: Medico: JhonPeter | CRM: 323 |ID: Especialidade: Dermatologia | Custo da Consulta: 540.0 | ↓↓ Agenda de horários do: JhonPeter  ↓↓
+INFORMAÇÕES
+|Medico: Napoleao Bonaparte | CRM: 323 |Especialidade: Dermatologia, Pediatria, Odontologia | Custo da Consulta: 444.0 | ↓↓ Agenda de horários do: Napoleao Bonaparte  ↓↓
 
-ID: Segunda - 08am:  | Segunda - 09am:  | Segunda - 10am:  | Segunda - 11am:  | Segunda - 12pm:  | Segunda - 13pm: ocupado | Segunda - 14pm: disponível | Segunda - 15pm:  | Segunda - 16pm:  | Segunda - 17pm:  | Segunda - 18pm:  | 
-ID: Terça - 08am:  | Terça - 09am:  | Terça - 10am:  | Terça - 11am:  | Terça - 12pm:  | Terça - 13pm:  | Terça - 14pm:  | Terça - 15pm:  | Terça - 16pm:  | Terça - 17pm:  | Terça - 18pm:  | 
-ID: Quarta - 08am:  | Quarta - 09am:  | Quarta - 10am:  | Quarta - 11am:  | Quarta - 12pm:  | Quarta - 13pm:  | Quarta - 14pm:  | Quarta - 15pm:  | Quarta - 16pm:  | Quarta - 17pm:  | Quarta - 18pm:  | 
-ID: Quinta - 08am:  | Quinta - 09am:  | Quinta - 10am:  | Quinta - 11am:  | Quinta - 12pm:  | Quinta - 13pm:  | Quinta - 14pm:  | Quinta - 15pm:  | Quinta - 16pm:  | Quinta - 17pm:  | Quinta - 18pm:  | 
-ID: Sexta - 08am:  | Sexta - 09am:  | Sexta - 10am:  | Sexta - 11am:  | Sexta - 12pm:  | Sexta - 13pm:  | Sexta - 14pm:  | Sexta - 15pm:  | Sexta - 16pm:  | Sexta - 17pm:  | Sexta - 18pm:  | 
-ID: Sábado - 08am:  | Sábado - 09am:  | Sábado - 10am:  | Sábado - 11am:  | Sábado - 12pm:  | Sábado - 13pm:  | Sábado - 14pm:  | Sábado - 15pm: ocupado | Sábado - 16pm: disponível | Sábado - 17pm: Ocupado | Sábado - 18pm: Disponível | 
-ID: Domingo - 08am:  | Domingo - 09am:  | Domingo - 10am:  | Domingo - 11am:  | Domingo - 12pm: |Domingo - 13pm: |Domingo - 14pm: |Domingo - 15pm: |Domingo - 16pm: |Domingo - 17pm: |Domingo - 18pm: |
+ID: Segunda - 08am: Disponível | Segunda - 09am: Disponível | Segunda - 10am: Ocupado | Segunda - 11am: Disponível | Segunda - 12pm: Disponível | Segunda - 13pm: Disponível | Segunda - 14pm: Ocupado | Segunda - 15pm: Ocupado | Segunda - 16pm: Ocupado | Segunda - 17pm: Ocupado | Segunda - 18pm: Ocupado | 
+ID: Terça - 08am: Ocupado | Terça - 09am: Ocupado | Terça - 10am: Ocupado | Terça - 11am: Ocupado | Terça - 12pm: Ocupado | Terça - 13pm: Ocupado | Terça - 14pm: Ocupado | Terça - 15pm: Ocupado | Terça - 16pm: Ocupado | Terça - 17pm: Ocupado | Terça - 18pm: Ocupado | 
+ID: Quarta - 08am: Ocupado | Quarta - 09am: Ocupado | Quarta - 10am: Ocupado | Quarta - 11am: Ocupado | Quarta - 12pm: Ocupado | Quarta - 13pm: Ocupado | Quarta - 14pm: Ocupado | Quarta - 15pm: Ocupado | Quarta - 16pm: Ocupado | Quarta - 17pm: Ocupado | Quarta - 18pm: Ocupado | 
+ID: Quinta - 08am: Ocupado | Quinta - 09am: Ocupado | Quinta - 10am: Ocupado | Quinta - 11am: Ocupado | Quinta - 12pm: Ocupado | Quinta - 13pm: Ocupado | Quinta - 14pm: Ocupado | Quinta - 15pm: Ocupado | Quinta - 16pm: Ocupado | Quinta - 17pm: Ocupado | Quinta - 18pm: Ocupado | 
+ID: Sexta - 08am: Ocupado | Sexta - 09am: Ocupado | Sexta - 10am: Ocupado | Sexta - 11am: Ocupado | Sexta - 12pm: Ocupado | Sexta - 13pm: Ocupado | Sexta - 14pm: Ocupado | Sexta - 15pm: Ocupado | Sexta - 16pm: Ocupado | Sexta - 17pm: Ocupado | Sexta - 18pm: Ocupado | 
+ID: Sábado - 08am: Ocupado | Sábado - 09am: Ocupado | Sábado - 10am: Ocupado | Sábado - 11am: Ocupado | Sábado - 12pm: Ocupado | Sábado - 13pm: Ocupado | Sábado - 14pm: Ocupado | Sábado - 15pm: Ocupado | Sábado - 16pm: Ocupado | Sábado - 17pm: Ocupado | Sábado - 18pm: Ocupado | 
+ID: Domingo - 08am: Ocupado | Domingo - 09am: Ocupado | Domingo - 10am: Ocupado | Domingo - 11am: Ocupado | Domingo - 12pm: Ocupado | Domingo - 13pm: Ocupado | Domingo - 14pm: Ocupado | Domingo - 15pm: Ocupado | Domingo - 16pm: Ocupado | Domingo - 17pm: Ocupado | Domingo - 18pm: Ocupado | 
 
                        ----------------------------------------------------------------                         

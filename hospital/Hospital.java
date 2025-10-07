@@ -41,28 +41,34 @@ public class Hospital {
                             boolean continuar2 = true;
                             while (continuar2) {
 
-                                    System.out.print("Escreva seu Nome Completo: ");
+                                    System.out.print("Escreva seu Primeiro Nome: ");
                                     String nome_comum = scanner.nextLine();
+                                    System.out.print("Escreva seu Último Sobrenome: ");
+                                    String sobrenome_comum = scanner.nextLine();
                                     System.out.print("Escreva seu CPF no formato --> XXX.XXX.XXX-XX: ");
                                     String cpf_comum = scanner.nextLine();
                                     System.out.print("Digite sua Idade: ");
                                     int idade_comum = scanner.nextInt();
                                     scanner.nextLine();
-                                    String senha_comum = null;
+                                    System.out.print("Crie uma senha de até 8 caracteres para login posterior: ");
+                                    String senha = scanner.nextLine();
 
 
-                                   Paciente paciente = new Paciente(nome_comum, cpf_comum, idade_comum,  senha_comum);
+                                   Paciente paciente = new Paciente(nome_comum, sobrenome_comum, cpf_comum, idade_comum, senha);
 
 
-                                   if(!paciente.getNome().isBlank() && paciente.getIdade() != 0 && !paciente.getCpf().isBlank()) {
-                                    String dadosPaciente = "Paciente comum: " + paciente.getNome() +
+                                   if(!paciente.getNomeCompleto().isBlank() && paciente.getIdade() != 0 && !paciente.getCpf().isBlank() && !paciente.getSenhaHash().isBlank()) {
+                                    String dadosPaciente = "Paciente comum: " + paciente.getNomeCompleto() +
                                             " | CPF: " + paciente.getCpf() +
-                                            " | Idade: " + paciente.getIdade();
+                                            " | Idade: " + paciente.getIdade() +
+                                            " | Login: " + paciente.getLogin() +
+                                            " | Senha: " + paciente.getSenhaHash();
                                     Arquivo.salvar("pacientes.txt", dadosPaciente);
 
                                     System.out.println("Paciente comum cadastrado com sucesso!!");
-                                    continuar2 = false;
+                                    break;
                                 }
+                                continuar2 = false;
                             }
                             boolean continuar3 = false;
 
@@ -102,6 +108,7 @@ public class Hospital {
                                                     continuar3 = true;
                                                     System.out.print("Em qual Especialidade Médica você deseja marcar consulta? Digite Aqui: ");
                                                     String especialidade = scanner.nextLine();
+                                                    System.out.println("Exemplo: Segunda, Quarta, Sábado");
                                                     System.out.print("Quais dias você estaria disponível para realizar a consulta? Digite Aqui: ");
                                                     String nome_dos_dias2 = scanner.nextLine();
                                                     Arquivo.lerArquivoScanner(nome_dos_dias2, especialidade);
@@ -157,8 +164,10 @@ public class Hospital {
                             continuar1 = true;
                             boolean continuar5 = true;
                             while (continuar5) {
-                                System.out.print("Escreva seu Nome Completo: ");
+                                System.out.print("Escreva seu Primeiro Nome: ");
                                 String nome_especial = scanner.nextLine();
+                                System.out.print("Escreva seu Último Sobrenome: ");
+                                String sobrenome_especial = scanner.nextLine();
                                 System.out.print("Escreva seu CPF no formato --> XXX.XXX.XXX-XX: ");
                                 String cpf_especial = scanner.nextLine();
                                 System.out.print("Digite sua Idade: ");
@@ -168,18 +177,22 @@ public class Hospital {
                                 String plano_de_saude_especial = scanner.nextLine();
                                 System.out.print("(Apenas digite um '.' caso não possua) Informe seu tipo de Prioridade: ");
                                 String tipo_de_prioridade_especial = scanner.nextLine();
-                                String senha_especial = null;
+                                System.out.print("Crie uma senha de até 8 caracteres para login posterior: ");
+                                String senha_especial = scanner.nextLine();
 
-                                Paciente_Especial paciente_especial = new Paciente_Especial(nome_especial, cpf_especial, idade_especial, senha_especial,  plano_de_saude_especial, tipo_de_prioridade_especial);
+                                Paciente_Especial paciente_especial = new Paciente_Especial(nome_especial, sobrenome_especial, cpf_especial, idade_especial, plano_de_saude_especial, tipo_de_prioridade_especial, senha_especial);
 
-                                String dadosPacienteEspecial = "Paciente especial: " + paciente_especial.getNome() +
-                                        " | CPF: " + paciente_especial.getCpf() +
-                                        " | Idade: " + paciente_especial.getIdade() +
-                                        " | Plano: " + paciente_especial.getPlanoDeSaude() +
-                                        " | Prioridade: " + paciente_especial.getTipodeprioridade();
-                                Arquivo.salvar("pacientes_especiais.txt", dadosPacienteEspecial);
+                                if(!paciente_especial.getNomeCompleto().isBlank() && !paciente_especial.getCpf().isBlank() && !paciente_especial.getTipodeprioridade().isBlank() && paciente_especial.getIdade() != 0 && !paciente_especial.getPlanoDeSaude().isBlank() && !paciente_especial.getSenhaHash().isBlank()) {
+                                    String dadosPacienteEspecial = "Paciente especial: " + paciente_especial.getNomeCompleto() +
+                                            " | CPF: " + paciente_especial.getCpf() +
+                                            " | Idade: " + paciente_especial.getIdade() +
+                                            " | Plano: " + paciente_especial.getPlanoDeSaude() +
+                                            " | Prioridade: " + paciente_especial.getTipodeprioridade();
+                                    Arquivo.salvar("pacientes_especiais.txt", dadosPacienteEspecial);
 
-                                System.out.println("Paciente especial cadastrado com sucesso!!");
+                                    System.out.println("Paciente especial cadastrado com sucesso!!");
+                                    break;
+                                }
                                 continuar5 = false;
                             }
 
@@ -197,49 +210,70 @@ public class Hospital {
                                 System.out.print("Digite aqui seu CRM: ");
                                 int crm = scanner.nextInt();
                                 scanner.nextLine();
-                                System.out.print("Escreva sua ou suas especialidades(Dermatologia, Pediatria...): ");
+                                System.out.print("Escreva sua ou suas especialidades seguindo este modelo(Dermatologia, Pediatria...): ");
                                 String especialidade = scanner.nextLine();
                                 System.out.print("Escreva o preço (numérico) que você cobra por consulta: ");
                                 double custo_da_consulta = scanner.nextDouble();
                                 scanner.nextLine();
-                                System.out.println("Preencha os horários com 'Disponível' - Apto para Consulta ou 'Ocupado' - Horário não disponível");
+                                System.out.println("|Preencha os horários com 'A' - Apto para Realizar Consulta| ou |Deixe Em Branco - Horário não disponível|");
                                 System.out.println("Digite aqui como é sua agenda de horários: ");
                                 String[][] agenda_de_horarios = new String[7][24];
-                                for (int i = 0; i < 7; i++) {
-                                    for (int j = 8; j < 19; j++) {
-                                        if (i == 0) {
-                                            System.out.println("Segunda");
-                                        } else if (i == 1) {
-                                            System.out.println("Terça");
-                                        } else if (i == 2) {
-                                            System.out.println("Quarta");
-                                        } else if (i == 3) {
-                                            System.out.println("Quinta");
-                                        } else if (i == 4) {
-                                            System.out.println("Sexta");
-                                        } else if (i == 5) {
-                                            System.out.println("Sábado");
-                                        } else {
-                                            System.out.println("Domingo");
-                                        }
-                                        if (j < 10) {
-                                            System.out.print("0" + j + "am: ");
-                                        } else if (j < 12) {
-                                            System.out.print(j + "am: ");
-                                        } else {
-                                            System.out.print(j + "pm: ");
-                                        }
-                                        agenda_de_horarios[i][j] = scanner.nextLine();
 
+
+                                boolean continuar7 = true;
+                                    for (int i = 0; i < 7; i++) {
+                                        for (int j = 8; j < 19; j++) {
+                                            do {
+                                            continuar7 = true;
+                                            if (i == 0) {
+                                                System.out.println("Segunda");
+                                            } else if (i == 1) {
+                                                System.out.println("Terça");
+                                            } else if (i == 2) {
+                                                System.out.println("Quarta");
+                                            } else if (i == 3) {
+                                                System.out.println("Quinta");
+                                            } else if (i == 4) {
+                                                System.out.println("Sexta");
+                                            } else if (i == 5) {
+                                                System.out.println("Sábado");
+                                            } else {
+                                                System.out.println("Domingo");
+                                            }
+                                            if (j < 10) {
+                                                System.out.print("0" + j + "am: ");
+                                                agenda_de_horarios[i][j] = scanner.nextLine();
+                                                if (agenda_de_horarios[i][j].length() < 2) {
+                                                    continuar7 = false;
+                                                }
+
+                                            } else if (j < 12) {
+                                                System.out.print(j + "am: ");
+                                                agenda_de_horarios[i][j] = scanner.nextLine();
+                                                if (agenda_de_horarios[i][j].length() < 2) {
+                                                    continuar7 = false;
+                                                }
+
+                                            } else {
+                                                System.out.print(j + "pm: ");
+                                                agenda_de_horarios[i][j] = scanner.nextLine();
+                                                if (agenda_de_horarios[i][j].length() < 2) {
+                                                    continuar7 = false;
+                                                }
+                                            }
+                                        }while(continuar7);
                                     }
+
                                 }
+
+
 
 
                                 Medico Medico = new Medico(nomeMedico, sobrenomeMedico, crm, especialidade, custo_da_consulta, agenda_de_horarios);
                                 continuar6 = false;
-                                String dadosMedico = "ID: Medico: " + Medico.getNomeCompleto() +
+                                String dadosMedico = "INFORMAÇÕES" + "\n" + "|Medico: " + Medico.getNomeCompleto() +
                                         " | CRM: " + Medico.getCrm() +
-                                        " |ID: Especialidade: " + Medico.getEspecialidade() +
+                                        " |Especialidade: " + Medico.getEspecialidade() +
                                         " | Custo da Consulta: " + Medico.getCusto_da_consulta() +
                                         " | ↓↓ Agenda de horários do: " + Medico.getNomeCompleto() + "  ↓↓\n";
                                 Arquivo.salvar("medicos.txt", dadosMedico);
@@ -273,6 +307,10 @@ public class Hospital {
 
                 case 2:
                     continuar = false;
+                    System.out.print("Digite os 6 primeiros dígitos do seu CPF (Tudo Junto): ");
+                    String login = scanner.nextLine();
+                    System.out.print("Digite sua Senha: ");
+                    String senha = scanner.nextLine();
                     break;
                 case 3:
                     System.out.println("Muito Obrigado por Escolher o Hospital Java, volte sempre!!");

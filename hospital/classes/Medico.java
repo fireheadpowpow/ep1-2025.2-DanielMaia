@@ -1,9 +1,12 @@
 package hospital.classes;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Medico{
     private String nome;
     private String sobrenome;
-    private String nomeCompleto;
     private int crm;
     private String especialidade;
     private double custo_da_consulta;
@@ -15,7 +18,7 @@ public class Medico{
         this.setCrm(crm);
         this.setEspecialidade(especialidade);
         this.setCusto_da_consulta(custo_da_consulta);
-        this.agenda_de_horarios = agenda_de_horarios;
+        this.setAgenda_de_horarios(agenda_de_horarios);
     }
 
     public void setNome(String nome){
@@ -42,14 +45,39 @@ public class Medico{
 
 
     public void setEspecialidade(String especialidade){
+        List<String> listaEspecialidade;
         if (especialidade.isBlank()){
             throw new IllegalArgumentException("Especialidade Inválida!!");
         }
-        else{
-            String especialidadeFormatada = especialidade.substring(0, 1).toUpperCase();
-            String restante = especialidade.substring(1).toLowerCase();
-            this.especialidade = especialidadeFormatada + restante;
+        else {
+                String[] especialidadeMedicoVetor = especialidade.split(", ");
+                listaEspecialidade = new ArrayList<>(Arrays.asList(especialidadeMedicoVetor));
+                for(int i = 0; i < listaEspecialidade.size(); i++) {
+                    String palavra = listaEspecialidade.get(i);
+
+                    String parteFormatada = palavra.substring(0, 1).toUpperCase();
+                    String restoFormatada = palavra.substring(1).toLowerCase();
+
+                    String palavraFormatada = parteFormatada + restoFormatada;
+
+                    listaEspecialidade.set(i, palavraFormatada);
+                }
+
         }
+        this.especialidade = String.join(", ", listaEspecialidade);
+    }
+
+    public void setAgenda_de_horarios(String[][] agenda_de_horarios){
+        for (int i = 0; i < 7; i++) {
+            for (int j = 8; j < 19; j++) {
+                if(!agenda_de_horarios[i][j].isBlank() && agenda_de_horarios[i][j].length() == 1)
+                    agenda_de_horarios[i][j] = "Disponível";
+                else{
+                    agenda_de_horarios[i][j] = "Ocupado";
+                }
+            }
+            }
+        this.agenda_de_horarios = agenda_de_horarios;
     }
 
     public void setCrm(int crm){
@@ -72,8 +100,9 @@ public class Medico{
 
 
 
+
     public String getNomeCompleto(){
-        return nome + sobrenome;
+        return nome + " " + sobrenome;
     }
     public int getCrm(){
         return crm;
