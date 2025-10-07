@@ -107,6 +107,7 @@ public class Arquivo {
             File arquivo = new File("medicos.txt");
             Scanner leitor = new Scanner(arquivo);
 
+<<<<<<< HEAD
             String[] diasVetor = dias.split(", ");
             for(int i = 0; i < 7; i++){
                String diasFormatados = diasVetor[i].substring(0, 1).toUpperCase();
@@ -119,6 +120,87 @@ public class Arquivo {
                     if(linha.startsWith("ID: ") && linha.contains(especialidade_ou_medico)){
                         System.out.println(linha);
                         break;
+=======
+        List<String> diasLista = new ArrayList<>(Arrays.asList(dias.split(", ")));
+        List<String> especialidadeLista = new ArrayList<>(Arrays.asList(especialidade_ou_medico.split(", ")));
+
+        for (String dia : diasLista) {
+            for (String especialidade : especialidadeLista) {
+
+                String diaFormatado = formatarPrimeiraLetraMaiuscula(dia);
+                String especialidadeFormatada = formatarPrimeiraLetraMaiuscula(especialidade);
+
+                try {
+                    File arquivo = new File("medicos.txt");
+                    Scanner leitor = new Scanner(arquivo);
+
+                    System.out.println("---- BUSCANDO POR: " + especialidadeFormatada + " em " + diaFormatado + " ----");
+
+
+                    StringBuilder blocoMedico = new StringBuilder();
+                    boolean buscandoEspecialidadeNaLinhaSeguinte = false;
+                    boolean diaDisponivel = false;
+                    boolean encontrado = false;
+
+
+                    while (leitor.hasNextLine()) {
+                        String linha = leitor.nextLine();
+
+
+                        if (linha.startsWith("INFORMAÇÕES")) {
+
+                            blocoMedico.setLength(0);
+                            blocoMedico.append(linha).append("\n");
+                            buscandoEspecialidadeNaLinhaSeguinte = true;
+                            continue;
+                        }
+
+
+                        if (buscandoEspecialidadeNaLinhaSeguinte) {
+
+
+                            if (linha.contains("|Especialidade: ") && linha.contains(especialidadeFormatada)) {
+
+
+                                encontrado = true;
+
+                                blocoMedico.append(linha).append("\n");
+
+
+                                buscandoEspecialidadeNaLinhaSeguinte = false;
+                                continue;
+                            } else {
+
+                                buscandoEspecialidadeNaLinhaSeguinte = false;
+                                continue;
+                            }
+                        }
+
+
+                        if (encontrado && linha.startsWith("ID:") && linha.contains(diaFormatado)) {
+
+
+                            blocoMedico.append(linha).append("\n");
+                            diaDisponivel = true;
+
+
+                            break;
+                        }
+
+
+                        if (encontrado && !linha.startsWith("ID:")) {
+                            blocoMedico.append(linha).append("\n");
+                        }
+
+                    }
+
+
+                    if (encontrado && diaDisponivel) {
+                        System.out.println("\n--- INFORMAÇÕES DO MÉDICO ENCONTRADO ---");
+                        System.out.println(blocoMedico.toString());
+                    } else {
+                        System.out.println("Nenhum médico encontrado com a especialidade/dia: " + especialidadeFormatada + " em " + diaFormatado);
+>>>>>>> 808cce3 (Ajeitando commit errado)
                     }
                 }
 
