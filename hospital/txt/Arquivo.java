@@ -125,67 +125,66 @@ public class Arquivo {
 
                     System.out.println("---- BUSCANDO POR: " + especialidadeFormatada + " em " + diaFormatado + " ----");
 
-                    // Sinalizadores e variáveis de captura
+
                     StringBuilder blocoMedico = new StringBuilder();
                     boolean buscandoEspecialidadeNaLinhaSeguinte = false;
                     boolean diaDisponivel = false;
                     boolean encontrado = false;
 
-                    // CRUCIAL: Reinicia o Scanner para cada busca
+
                     while (leitor.hasNextLine()) {
                         String linha = leitor.nextLine();
 
-                        // 1. INÍCIO DO BLOCO (Sempre a linha "INFORMAÇÕES")
+
                         if (linha.startsWith("INFORMAÇÕES")) {
-                            // Se encontrar o início de um novo bloco, limpa o anterior e inicia a busca.
-                            blocoMedico.setLength(0); // Limpa o bloco anterior
+
+                            blocoMedico.setLength(0);
                             blocoMedico.append(linha).append("\n");
                             buscandoEspecialidadeNaLinhaSeguinte = true;
                             continue;
                         }
 
-                        // 2. BUSCA PELA ESPECIALIDADE (Logo após a linha INFORMAÇÕES)
+
                         if (buscandoEspecialidadeNaLinhaSeguinte) {
 
-                            // Verifica se a linha (que é a linha dos dados) contém a especialidade
+
                             if (linha.contains("|Especialidade: ") && linha.contains(especialidadeFormatada)) {
 
-                                // Encontrado o médico!
+
                                 encontrado = true;
-                                // Adiciona esta linha (Nome, CRM, Especialidade) ao bloco
+
                                 blocoMedico.append(linha).append("\n");
 
-                                // Desativa o sinalizador de busca e continua para a agenda
+
                                 buscandoEspecialidadeNaLinhaSeguinte = false;
                                 continue;
                             } else {
-                                // Se a especialidade NÃO foi encontrada, este médico não serve.
+
                                 buscandoEspecialidadeNaLinhaSeguinte = false;
-                                continue; // Pula o resto da lógica para este médico
+                                continue;
                             }
                         }
 
-                        // 3. BUSCA PELA AGENDA (Após a linha do bloco)
-                        // Procura a linha que começa com "ID:" E contém o dia formatado.
+
                         if (encontrado && linha.startsWith("ID:") && linha.contains(diaFormatado)) {
 
-                            // Se encontrar a agenda para o dia, adiciona ao bloco e confirma a disponibilidade
+
                             blocoMedico.append(linha).append("\n");
                             diaDisponivel = true;
 
-                            // Interrompe a busca no arquivo, pois encontrou todas as informações
+
                             break;
                         }
 
-                        // 4. Captura linhas restantes do bloco de informações (se necessário)
+
                         if (encontrado && !linha.startsWith("ID:")) {
                             blocoMedico.append(linha).append("\n");
                         }
 
-                    } // Fim do while
+                    }
 
-                    // 5. IMPRESSÃO DO RESULTADO
-                    if (encontrado && diaDisponivel) { // Verifica se encontrou o médico E o dia
+
+                    if (encontrado && diaDisponivel) {
                         System.out.println("\n--- INFORMAÇÕES DO MÉDICO ENCONTRADO ---");
                         System.out.println(blocoMedico.toString());
                     } else {
