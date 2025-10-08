@@ -107,7 +107,7 @@ public class Arquivo {
             File arquivo = new File("medicos.txt");
             Scanner leitor = new Scanner(arquivo);
 
-<<<<<<< HEAD
+
             String[] diasVetor = dias.split(", ");
             for(int i = 0; i < 7; i++){
                String diasFormatados = diasVetor[i].substring(0, 1).toUpperCase();
@@ -120,7 +120,7 @@ public class Arquivo {
                     if(linha.startsWith("ID: ") && linha.contains(especialidade_ou_medico)){
                         System.out.println(linha);
                         break;
-=======
+
         List<String> diasLista = new ArrayList<>(Arrays.asList(dias.split(", ")));
         List<String> especialidadeLista = new ArrayList<>(Arrays.asList(especialidade_ou_medico.split(", ")));
 
@@ -200,7 +200,7 @@ public class Arquivo {
                         System.out.println(blocoMedico.toString());
                     } else {
                         System.out.println("Nenhum médico encontrado com a especialidade/dia: " + especialidadeFormatada + " em " + diaFormatado);
->>>>>>> 808cce3 (Ajeitando commit errado)
+                        (Ajeitando commit errado)
                     }
                 }
 
