@@ -20,29 +20,31 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
-   [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
+  Compilação : javac Hospital.java classes/*.java txt/*.java
 
 2. **Execução:**  
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+    Execução: java Hospital.java
 
-3. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
-
+4. **Estrutura de Pastas:**  
+  hospital → classes
+     ↳ txt
+     
 3. **Versão do JAVA utilizada:**  
-   [Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: `java 21`]
+  java version "24.0.2"
 
 ---
 
 ## Vídeo de Demonstração
 
-- [Inserir o link para o vídeo no YouTube/Drive aqui]
+(https://drive.google.com/drive/folders/1Kd-54Vj-tYiQ0guju_bZ2qLOIs8p4yX6)
 
 ---
 
 ## Prints da Execução
 
 1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+   <img width="1188" height="121" alt="image" src="https://github.com/user-attachments/assets/478b1245-dfda-46a5-92e4-de199a40eb6a" />
+
 
 2. Cadastro de Médico:  
    ![Inserir Print 2](caminho/do/print2.png)
