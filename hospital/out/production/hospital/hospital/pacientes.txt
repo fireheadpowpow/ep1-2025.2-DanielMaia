@@ -1,2 +1,2 @@
-Paciente comum: Pedro Pedro | CPF: 222.222.222-11 | Idade: 32 | Login: 222222 | Senha: rgcOcE
-Paciente especial: Joa Joa | CPF: 333.333.333-33 | Idade: 32 | Plano: . | Prioridade: . | Login: 333333 | Senha: Orgs
+Paciente comum: Pedro Lucas | CPF: 323.552.434-22 | Idade: 32 | Login: 323552 | Senha: RO33PED
+Paciente comum: Oi Oi | CPF: 434.434.222-33 | Idade: 43 | Login: 434434 | Senha: IllOIO

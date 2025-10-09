@@ -556,272 +556,275 @@ public class Hospital {
                     break;
 
                 case 2:
-                    boolean verificacao = true;
-                    while (verificacao) {
-                        System.out.println("Você deseja realizar login como Médico ou Paciente?");
-                        System.out.print("Digite 1 para Paciente | 2 para Médico: ");
-                        int login2 = scanner.nextInt();
-                        scanner.nextLine();
-                        switch (login2) {
-                            case 1:
+                    System.out.println("Você deseja realizar login como Médico ou Paciente?");
+                    System.out.print("Digite 1 para Paciente | 2 para Médico: ");
+                    int login2 = scanner.nextInt();
+                    scanner.nextLine();
+                    switch (login2) {
+                        case 1:
+                            boolean verificacao = true;
+                            while (verificacao) {
                                 System.out.print("Digite os 6 primeiros dígitos do seu CPF (Tudo Junto): ");
                                 String login = scanner.nextLine();
                                 System.out.print("Digite sua Senha: ");
                                 String senha = scanner.nextLine();
                                 verificacao = SenhaPaciente.verificarLogin(login, SenhaPaciente.verificarSenhaHash(senha));
-                                System.out.println("Bem-Vindo ao Hospital Java!");
-                                boolean continuar31 = false;
-                                while (!continuar31) {
-                                    System.out.println("AVISOS: [Nós atendemos, por meio de CONSULTAS, de Segunda a Sábado de 8 às 18] e [Agendamos consultas apenas até o fim dessa semana]");
-                                    System.out.println("Deseja agendar agora sua Consulta?");
-                                    System.out.print("Digite --> 1 - Sim | 2 - Não | 3 - Voltar | 4 - Encerrar Atendimento: ");
+                            }
+                            System.out.println("Bem-Vindo ao Hospital Java!");
+                            boolean continuar31 = false;
+                            while (!continuar31) {
+                                System.out.println("AVISOS: [Nós atendemos, por meio de CONSULTAS, de Segunda a Sábado de 8 às 18] e [Agendamos consultas apenas até o fim dessa semana]");
+                                System.out.println("Deseja agendar agora sua Consulta?");
+                                System.out.print("Digite --> 1 - Sim | 2 - Não | 3 - Voltar | 4 - Encerrar Atendimento: ");
 
-                                    int opcao2 = scanner.nextInt();
-                                    scanner.nextLine();
-                                    switch (opcao2) {
-                                        case 1:
-                                            boolean continuar4 = true;
-                                            while (continuar4) {
-                                                System.out.println("Você deseja agendar consulta com algum médico específico?");
-                                                System.out.print("Digite --> 1 - Sim | 2 - Não | 3 - Voltar | 4 - Encerrar Atendimento: ");
-                                                int opcao3 = scanner.nextInt();
-                                                scanner.nextLine();
-                                                switch (opcao3) {
-                                                    case 1:
-                                                        continuar = false;
-                                                        continuar31 = true;
-                                                        System.out.print("Digite o nome do médico: ");
-                                                        String nome_do_medico = scanner.nextLine();
-                                                        System.out.println("Exemplo: Segunda, Quarta, Sábado");
-                                                        System.out.print("Quais dias você estaria disponível para realizar a consulta? Digite Aqui: ");
-                                                        String nome_dos_dias = scanner.nextLine();
-                                                        Arquivo.lerArquivoScanner(nome_dos_dias, nome_do_medico);
-                                                        System.out.println("Deseja prosseguir com o agendamento de consulta com este médico? ");
-                                                        System.out.print("1 - Sim | 2 - Buscar outro: ");
-                                                        int escolha = scanner.nextInt();
-                                                        scanner.nextLine();
-                                                        if (escolha == 1) {
-                                                            System.out.println("Agora digite o dia e o horário que você deseja agendar a consulta, caso esteja 'Disponível' o horário");
-                                                            System.out.print("Digite o Nome Completo do Médico como consta nao campo 'INFORMAÇÕES': ");
-                                                            String nomeMedico = scanner.nextLine();
-                                                            System.out.print("Digite o dia (ex: Segunda): ");
-                                                            String dia = scanner.nextLine();
-                                                            System.out.print("Digite o horário (ex: 08am): ");
-                                                            String horario = scanner.nextLine();
-                                                            System.out.println("|Exemplo: 10/10|");
-                                                            System.out.print("Digite a data (no formato: 'dd/mm') que você deseja agendar a consulta, lembrando que so agendamos até o fim da semana atual: ");
-                                                            String data = scanner.nextLine();
-                                                            if (Arquivo.verificarEAtualizar(nomeMedico, dia, horario, data)) {
-                                                                System.out.print("Digite aqui seu primeiro Nome e Último sobrenome: ");
-                                                                String nomePaciente = scanner.nextLine();
-                                                                List<String> informacoes = Arquivo.buscarMedicosPorDiaEEspecialidade(nome_dos_dias, nome_do_medico);
-                                                                String status = "Agendada";
-                                                                Consultas consulta = new Consultas(nomePaciente, informacoes, status);
+                                int opcao2 = scanner.nextInt();
+                                scanner.nextLine();
+                                switch (opcao2) {
+                                    case 1:
+                                        boolean continuar4 = true;
+                                        while (continuar4) {
+                                            System.out.println("Você deseja agendar consulta com algum médico específico?");
+                                            System.out.print("Digite --> 1 - Sim | 2 - Não | 3 - Voltar | 4 - Encerrar Atendimento: ");
+                                            int opcao3 = scanner.nextInt();
+                                            scanner.nextLine();
+                                            switch (opcao3) {
+                                                case 1:
+                                                    continuar = false;
+                                                    continuar31 = true;
+                                                    System.out.print("Digite o nome do médico: ");
+                                                    String nome_do_medico = scanner.nextLine();
+                                                    System.out.println("Exemplo: Segunda, Quarta, Sábado");
+                                                    System.out.print("Quais dias você estaria disponível para realizar a consulta? Digite Aqui: ");
+                                                    String nome_dos_dias = scanner.nextLine();
+                                                    Arquivo.lerArquivoScanner(nome_dos_dias, nome_do_medico);
+                                                    System.out.println("Deseja prosseguir com o agendamento de consulta com este médico? ");
+                                                    System.out.print("1 - Sim | 2 - Buscar outro: ");
+                                                    int escolha = scanner.nextInt();
+                                                    scanner.nextLine();
+                                                    if (escolha == 1) {
+                                                        System.out.println("Agora digite o dia e o horário que você deseja agendar a consulta, caso esteja 'Disponível' o horário");
+                                                        System.out.print("Digite o Nome Completo do Médico como consta nao campo 'INFORMAÇÕES': ");
+                                                        String nomeMedico = scanner.nextLine();
+                                                        System.out.print("Digite o dia (ex: Segunda): ");
+                                                        String dia = scanner.nextLine();
+                                                        System.out.print("Digite o horário (ex: 08am): ");
+                                                        String horario = scanner.nextLine();
+                                                        System.out.println("|Exemplo: 10/10|");
+                                                        System.out.print("Digite a data (no formato: 'dd/mm') que você deseja agendar a consulta, lembrando que so agendamos até o fim da semana atual: ");
+                                                        String data = scanner.nextLine();
+                                                        if (Arquivo.verificarEAtualizar(nomeMedico, dia, horario, data)) {
+                                                            System.out.print("Digite aqui seu primeiro Nome e Último sobrenome: ");
+                                                            String nomePaciente = scanner.nextLine();
+                                                            List<String> informacoes = Arquivo.buscarMedicosPorDiaEEspecialidade(nome_dos_dias, nome_do_medico);
+                                                            String status = "Agendada";
+                                                            Consultas consulta = new Consultas(nomePaciente, informacoes, status);
 
-                                                                if (!consulta.getInformacoes().isEmpty() && !consulta.getPaciente().isBlank() && !consulta.getStatus().isBlank()) {
-                                                                    String dadosConsulta = "Paciente Consultado: " + consulta.getPaciente() +
-                                                                            "| Informações da Consulta: " + consulta.getInformacoes() +
-                                                                            "| Status da Consulta: " + consulta.getStatus() +
-                                                                            "| Horário da Consulta: " + data + " - " + horario;
-                                                                    Arquivo.salvar("Consulta.txt", dadosConsulta);
+                                                            if (!consulta.getInformacoes().isEmpty() && !consulta.getPaciente().isBlank() && !consulta.getStatus().isBlank()) {
+                                                                String dadosConsulta = "Paciente Consultado: " + consulta.getPaciente() +
+                                                                        "| Informações da Consulta: " + consulta.getInformacoes() +
+                                                                        "| Status da Consulta: " + consulta.getStatus() +
+                                                                        "| Horário da Consulta: " + data + " - " + horario;
+                                                                Arquivo.salvar("Consulta.txt", dadosConsulta);
 
-                                                                    System.out.println("Sua Consulta foi linkada com o Médico Desejado!");
-                                                                    break;
-                                                                }
+                                                                System.out.println("Sua Consulta foi linkada com o Médico Desejado!");
+                                                                break;
                                                             }
-                                                            continuar4 = false;
-                                                            break;
-                                                        } else {
                                                         }
-
+                                                        continuar4 = false;
                                                         break;
-                                                    case 2:
-                                                        continuar = false;
-                                                        continuar31 = true;
-                                                        System.out.print("Em qual Especialidade Médica você deseja marcar consulta? Digite Aqui: ");
-                                                        String especialidade = scanner.nextLine();
-                                                        System.out.println("Exemplo: Segunda, Quarta, Sábado");
-                                                        System.out.print("Quais dias você estaria disponível para realizar a consulta? Digite Aqui: ");
-                                                        String nome_dos_dias2 = scanner.nextLine();
-                                                        Arquivo.lerArquivoScanner(nome_dos_dias2, especialidade);
-                                                        System.out.println("Deseja prosseguir com o agendamento de consulta com este médico? ");
-                                                        System.out.print("1 - Sim | 2 - Buscar outro: ");
-                                                        int escolha2 = scanner.nextInt();
-                                                        scanner.nextLine();
-                                                        if (escolha2 == 1) {
-                                                            System.out.println("Agora digite o dia e o horário que você deseja agendar a consulta, caso esteja 'Disponível' o horário");
-                                                            System.out.print("Digite o Nome Completo do Médico como consta nao campo 'INFORMAÇÕES': ");
-                                                            String nomeMedico = scanner.nextLine();
-                                                            System.out.print("Digite o dia (ex: Segunda): ");
-                                                            String dia = scanner.nextLine();
-                                                            System.out.print("Digite o horário (ex: 08am): ");
-                                                            String horario = scanner.nextLine();
-                                                            System.out.println("|Exemplo: 10/10|");
-                                                            System.out.print("Digite a data que você deseja agendar a consulta, lembrando que so agendamos para daqui a no máximo 1 semana: ");
-                                                            String data = scanner.nextLine();
-                                                            if (Arquivo.verificarEAtualizar(nomeMedico, dia, horario, data)) {
-                                                                System.out.print("Digite aqui o primeiro Nome e Último sobrenome do paciente a ser Consultado: ");
-                                                                String nomePaciente = scanner.nextLine();
-                                                                List<String> informacoes = Arquivo.buscarMedicosPorDiaEEspecialidade(nome_dos_dias2, especialidade);
-                                                                String status = "Agendada";
-                                                                Consultas consulta = new Consultas(nomePaciente, informacoes, status);
+                                                    } else {
+                                                    }
 
-                                                                if (!consulta.getInformacoes().isEmpty() && !consulta.getPaciente().isBlank() && !consulta.getStatus().isBlank()) {
-                                                                    String dadosConsulta = "Paciente Consultado: " + consulta.getPaciente() +
-                                                                            "| Informações da Consulta: " + consulta.getInformacoes() +
-                                                                            "| Status da Consulta: " + consulta.getStatus() +
-                                                                            "| Horário da Consulta: " + data + " - " + horario;
-                                                                    Arquivo.salvar("Consulta.txt", dadosConsulta);
+                                                    break;
+                                                case 2:
+                                                    continuar = false;
+                                                    continuar31 = true;
+                                                    System.out.print("Em qual Especialidade Médica você deseja marcar consulta? Digite Aqui: ");
+                                                    String especialidade = scanner.nextLine();
+                                                    System.out.println("Exemplo: Segunda, Quarta, Sábado");
+                                                    System.out.print("Quais dias você estaria disponível para realizar a consulta? Digite Aqui: ");
+                                                    String nome_dos_dias2 = scanner.nextLine();
+                                                    Arquivo.lerArquivoScanner(nome_dos_dias2, especialidade);
+                                                    System.out.println("Deseja prosseguir com o agendamento de consulta com este médico? ");
+                                                    System.out.print("1 - Sim | 2 - Buscar outro: ");
+                                                    int escolha2 = scanner.nextInt();
+                                                    scanner.nextLine();
+                                                    if (escolha2 == 1) {
+                                                        System.out.println("Agora digite o dia e o horário que você deseja agendar a consulta, caso esteja 'Disponível' o horário");
+                                                        System.out.print("Digite o Nome Completo do Médico como consta nao campo 'INFORMAÇÕES': ");
+                                                        String nomeMedico = scanner.nextLine();
+                                                        System.out.print("Digite o dia (ex: Segunda): ");
+                                                        String dia = scanner.nextLine();
+                                                        System.out.print("Digite o horário (ex: 08am): ");
+                                                        String horario = scanner.nextLine();
+                                                        System.out.println("|Exemplo: 10/10|");
+                                                        System.out.print("Digite a data que você deseja agendar a consulta, lembrando que so agendamos para daqui a no máximo 1 semana: ");
+                                                        String data = scanner.nextLine();
+                                                        if (Arquivo.verificarEAtualizar(nomeMedico, dia, horario, data)) {
+                                                            System.out.print("Digite aqui o primeiro Nome e Último sobrenome do paciente a ser Consultado: ");
+                                                            String nomePaciente = scanner.nextLine();
+                                                            List<String> informacoes = Arquivo.buscarMedicosPorDiaEEspecialidade(nome_dos_dias2, especialidade);
+                                                            String status = "Agendada";
+                                                            Consultas consulta = new Consultas(nomePaciente, informacoes, status);
 
-                                                                    System.out.println("Sua Consulta foi linkada com o Médico Desejado!");
-                                                                    break;
-                                                                }
+                                                            if (!consulta.getInformacoes().isEmpty() && !consulta.getPaciente().isBlank() && !consulta.getStatus().isBlank()) {
+                                                                String dadosConsulta = "Paciente Consultado: " + consulta.getPaciente() +
+                                                                        "| Informações da Consulta: " + consulta.getInformacoes() +
+                                                                        "| Status da Consulta: " + consulta.getStatus() +
+                                                                        "| Horário da Consulta: " + data + " - " + horario;
+                                                                Arquivo.salvar("Consulta.txt", dadosConsulta);
+
+                                                                System.out.println("Sua Consulta foi linkada com o Médico Desejado!");
+                                                                break;
                                                             }
-                                                            continuar4 = false;
-                                                            break;
-                                                        } else {
                                                         }
-
-                                                        continuar4 = false;
-
-                                                        break;
-                                                    case 3:
-                                                        continuar = false;
-                                                        System.out.println("Voltando...");
                                                         continuar4 = false;
                                                         break;
-                                                    case 4:
-                                                        continuar = false;
-                                                        continuar31 = true;
-                                                        System.out.println("Muito Obrigado por Escolher o Hospital Java, Volte Sempre!!");
-                                                        continuar4 = false;
-                                                        break;
+                                                    } else {
+                                                    }
 
-                                                    default:
-                                                        continuar = false;
-                                                        System.out.println("Opção Inválida!!");
-                                                        break;
+                                                    continuar4 = false;
+
+                                                    break;
+                                                case 3:
+                                                    continuar = false;
+                                                    System.out.println("Voltando...");
+                                                    continuar4 = false;
+                                                    break;
+                                                case 4:
+                                                    continuar = false;
+                                                    continuar31 = true;
+                                                    System.out.println("Muito Obrigado por Escolher o Hospital Java, Volte Sempre!!");
+                                                    continuar4 = false;
+                                                    break;
+
+                                                default:
+                                                    continuar = false;
+                                                    System.out.println("Opção Inválida!!");
+                                                    break;
 
 
-                                                }
                                             }
-                                            break;
-                                        case 2:
-                                            System.out.println("Voltando à Página Inicial...");
-                                            continuar31 = true;
-                                            break;
-                                        case 3:
-                                            continuar = false;
-                                            System.out.println("Voltando...");
-                                            continuar31 = true;
-                                            break;
-                                        case 4:
-                                            continuar = false;
-                                            System.out.println("Muito Obrigado por Escolher o Hospital Java, Volte Sempre!!");
-                                            continuar31 = true;
-                                            break;
-                                        default:
-                                            continuar = false;
-                                            System.out.println("Opção Inválida!!");
-                                            break;
-                                    }
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println("Voltando à Página Inicial...");
+                                        continuar31 = true;
+                                        break;
+                                    case 3:
+                                        continuar = false;
+                                        System.out.println("Voltando...");
+                                        continuar31 = true;
+                                        break;
+                                    case 4:
+                                        continuar = false;
+                                        System.out.println("Muito Obrigado por Escolher o Hospital Java, Volte Sempre!!");
+                                        continuar31 = true;
+                                        break;
+                                    default:
+                                        continuar = false;
+                                        System.out.println("Opção Inválida!!");
+                                        break;
                                 }
+                            }
 
-                                break;
+                            break;
 
 
-                            case 2:
-
+                        case 2:
+                            boolean verificacao2 = true;
+                            while (verificacao2) {
                                 System.out.print("Digite o seu CRM: ");
                                 String login3 = scanner.nextLine();
                                 System.out.print("Digite sua Senha: ");
                                 String senha3 = scanner.nextLine();
-                                verificacao = SenhaMedico.verificarLogin(login3, SenhaPaciente.verificarSenhaHash(senha3));
-                                if (!verificacao) {
-                                    boolean continuarAcoesMedico = true;
-                                    while (continuarAcoesMedico) {
-                                        System.out.println("\nBem-Vindo Doutor(a)!");
-                                        System.out.print("Digite --> 1 - Checar Agenda | 2 - Registrar Internação | 3 - Cancelar Internação | 4 - Encerrar Atendimento: ");
-                                        int acaoMedico = scanner.nextInt();
-                                        scanner.nextLine();
+                                verificacao2 = SenhaMedico.verificarLogin(login3, SenhaPaciente.verificarSenhaHash(senha3));
+                            }
+                            if (!verificacao2) {
+                                boolean continuarAcoesMedico = true;
+                                while (continuarAcoesMedico) {
+                                    System.out.println("\nBem-Vindo Doutor(a)!");
+                                    System.out.print("Digite --> 1 - Checar Agenda | 2 - Registrar Internação | 3 - Cancelar Internação | 4 - Encerrar Atendimento: ");
+                                    int acaoMedico = scanner.nextInt();
+                                    scanner.nextLine();
 
-                                        switch (acaoMedico) {
-                                            case 1:
-                                                System.out.print("Digite seu Primeiro Nome e Último Sobrenome: ");
-                                                String nome_do_medico = scanner.nextLine();
-                                                System.out.println("Exemplo: Segunda, Quarta, Sábado");
-                                                System.out.print("Quais dias você gostaria de checar como está a sua agenda? Digite Aqui: ");
-                                                String nome_dos_dias = scanner.nextLine();
-
-
-                                                Arquivo.lerArquivoScanner(nome_dos_dias, nome_do_medico);
+                                    switch (acaoMedico) {
+                                        case 1:
+                                            System.out.print("Digite seu Primeiro Nome e Último Sobrenome: ");
+                                            String nome_do_medico = scanner.nextLine();
+                                            System.out.println("Exemplo: Segunda, Quarta, Sábado");
+                                            System.out.print("Quais dias você gostaria de checar como está a sua agenda? Digite Aqui: ");
+                                            String nome_dos_dias = scanner.nextLine();
 
 
-                                                System.out.print("Gostaria de Encerrar a Agenda da Semana Doutor(a)? ");
-                                                System.out.print("1 - Sim | 2 - Não: ");
-                                                int opcao90 = scanner.nextInt();
-                                                scanner.nextLine();
-                                                switch (opcao90) {
-                                                    case 1:
-
-                                                        System.out.print("Confirme seu Primeiro Nome e Último Sobrenome: ");
-                                                        String nome_do_medico2 = scanner.nextLine();
-                                                        Arquivo.fecharAgendaInterativa(scanner, nome_do_medico2);
-                                                        break;
-                                                    case 2:
-
-                                                        break;
-                                                    default:
-                                                        System.out.println("Opção inválida.");
-                                                        break;
-                                                }
-                                                break;
-
-                                            case 2:
-
-                                                Internacao.registrarInternacao(scanner);
-                                                break;
-
-                                            case 3:
-                                                System.out.println("\n--- CANCELAR INTERNAÇÃO ---");
-                                                System.out.print("Nome Completo do Paciente: ");
-                                                String pacienteCancela = scanner.nextLine();
-                                                System.out.print("Número do Quarto (200-400): ");
-                                                String quartoCancela = scanner.nextLine();
-                                                System.out.print("Data de Cancelamento/Saída (dd/mm/aaaa): ");
-                                                String dataCancela = scanner.nextLine();
+                                            Arquivo.lerArquivoScanner(nome_dos_dias, nome_do_medico);
 
 
-                                                Internacao.cancelarInternacao(pacienteCancela, quartoCancela, dataCancela);
-                                                break;
-                                            case 4:
-                                                System.out.println("Sessão encerrada. Voltando ao Menu Principal.");
-                                                continuarAcoesMedico = false;
-                                                verificacao = true;
-                                                break;
-                                            default:
-                                                System.out.println("Opção inválida.");
-                                                break;
-                                        }
+                                            System.out.print("Gostaria de Encerrar a Agenda da Semana Doutor(a)? ");
+                                            System.out.print("1 - Sim | 2 - Não: ");
+                                            int opcao90 = scanner.nextInt();
+                                            scanner.nextLine();
+                                            switch (opcao90) {
+                                                case 1:
+
+                                                    System.out.print("Confirme seu Primeiro Nome e Último Sobrenome: ");
+                                                    String nome_do_medico2 = scanner.nextLine();
+                                                    Arquivo.fecharAgendaInterativa(scanner, nome_do_medico2);
+                                                    break;
+                                                case 2:
+
+                                                    break;
+                                                default:
+                                                    System.out.println("Opção inválida.");
+                                                    break;
+                                            }
+                                            break;
+
+                                        case 2:
+
+                                            Internacao.registrarInternacao(scanner);
+                                            break;
+
+                                        case 3:
+                                            System.out.println("\n--- CANCELAR INTERNAÇÃO ---");
+                                            System.out.print("Nome Completo do Paciente: ");
+                                            String pacienteCancela = scanner.nextLine();
+                                            System.out.print("Número do Quarto (200-400): ");
+                                            String quartoCancela = scanner.nextLine();
+                                            System.out.print("Data de Cancelamento/Saída (dd/mm/aaaa): ");
+                                            String dataCancela = scanner.nextLine();
+
+
+                                            Internacao.cancelarInternacao(pacienteCancela, quartoCancela, dataCancela);
+                                            break;
+                                        case 4:
+                                            System.out.println("Sessão encerrada. Voltando ao Menu Principal.");
+                                            continuarAcoesMedico = false;
+                                            break;
+                                        default:
+                                            System.out.println("Opção inválida.");
+                                            break;
                                     }
-                                } else {
-                                    System.out.println("❌ Login ou Senha Incorretos.");
                                 }
-                                break;
-                            case 3:
-                                System.out.println("Muito Obrigado por Escolher o Hospital Java, volte sempre!!");
-                                continuar = false;
-                                break;
-                            default:
-                                System.out.println("Opção Inválida!!");
-                                break;
-                        }
+                            } else {
+                                System.out.println("❌ Login ou Senha Incorretos.");
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Muito Obrigado por Escolher o Hospital Java, volte sempre!!");
+                            continuar = false;
+                            break;
+                        default:
+                            System.out.println("Opção Inválida!!");
+                            break;
                     }
-                    scanner.close();
             }
+            scanner.close();
         }
     }
 }
+
+
 
 
 

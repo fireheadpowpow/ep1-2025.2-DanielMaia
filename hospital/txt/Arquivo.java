@@ -211,70 +211,94 @@ public class Arquivo {
         List<String> medicosEncontrados = new ArrayList<>();
 
 
-        List<String> diasLista = new ArrayList<>(Arrays.asList(dias.split(", ")));
-        List<String> especialidadeLista = new ArrayList<>(Arrays.asList(especialidadeOuMedico.split(", ")));
-
-        for (String dia : diasLista) {
-            for (String especialidade : especialidadeLista) {
-
-                String diaFormatado = formatarPrimeiraLetraMaiuscula(dia);
-                String especialidadeFormatada = formatarPrimeiraLetraMaiuscula(especialidade);
-
-                try (Scanner leitor = new Scanner(new File("medicos.txt"))) {
-
-                    boolean medicoEncontrado = false;
-                    String nomeMedico = "";
-                    String sala = "";
-                    String crm = "";
-                    String especialidadeMedico = "";
-
-                    while (leitor.hasNextLine()) {
-                        String linha = leitor.nextLine();
+        List<String> diasLista = Arrays.asList(dias.split(",\\s*"));
+        List<String> termosDeBusca = Arrays.asList(especialidadeOuMedico.split(",\\s*"));
 
 
-                        if (linha.contains("|Medico: ")) {
+        List<String> termosFormatados = new ArrayList<>();
+        for (String termo : termosDeBusca) {
+            termosFormatados.add(formatarPrimeiraLetraMaiuscula(termo));
+        }
+
+        try (Scanner leitor = new Scanner(new File("medicos.txt"))) {
+            String linhaAtual = "";
+            String nomeMedico = "";
+            String sala = "";
+            String crm = "";
+            String especialidadeMedico = "";
+            boolean isMedicoBlock = false;
 
 
-                            String[] partes = linha.split("\\|");
-                            for (String parte : partes) {
-                                parte = parte.trim();
-                                if (parte.startsWith("Medico:")) {
-                                    nomeMedico = parte.replace("Medico:", "").trim();
-                                } else if (parte.startsWith("Especialidade:")) {
-                                    especialidadeMedico = parte.replace("Especialidade:", "").trim();
-                                } else if (parte.startsWith("Sala:")) {
-                                    sala = parte.replace("Sala:", "").trim();
-                                } else if (parte.startsWith("CRM:")) {
-                                    crm = parte.replace("CRM:", "").trim();
-                                }
-                            }
+            while (leitor.hasNextLine()) {
+                linhaAtual = leitor.nextLine();
 
 
-                            medicoEncontrado = especialidadeMedico.contains(especialidadeFormatada)
-                                    || nomeMedico.contains(especialidadeFormatada);
+                if (linhaAtual.contains("|Medico: ")) {
+
+
+                    nomeMedico = "";
+                    sala = "";
+                    crm = "";
+                    especialidadeMedico = "";
+                    isMedicoBlock = true;
+
+
+                    String[] partes = linhaAtual.split("\\|");
+                    for (String parte : partes) {
+                        parte = parte.trim();
+                        if (parte.startsWith("Medico:")) {
+                            nomeMedico = parte.replace("Medico:", "").trim();
+                        } else if (parte.startsWith("Especialidade:")) {
+                            especialidadeMedico = parte.replace("Especialidade:", "").trim();
+                        } else if (parte.startsWith("Sala:")) {
+                            sala = parte.replace("Sala:", "").trim();
+                        } else if (parte.startsWith("CRM:")) {
+                            crm = parte.replace("CRM:", "").trim();
                         }
+                    }
 
 
-                        if (medicoEncontrado && linha.contains("ID:") && linha.contains(diaFormatado)) {
-                            String resumo = "Medico: " + nomeMedico +
-                                    " | Especialidade: " + especialidadeMedico +
-                                    " | Sala: " + sala +
-                                    " | CRM: " + crm +
-                                    "\n-------------------------------\n";
+                } else if (isMedicoBlock && linhaAtual.contains("ID:")) {
 
+
+                    boolean diaEncontrado = false;
+                    for (String dia : diasLista) {
+                        if (linhaAtual.contains(formatarPrimeiraLetraMaiuscula(dia))) {
+                            diaEncontrado = true;
+                            break;
+                        }
+                    }
+
+                    boolean termoEncontrado = false;
+                    for (String termo : termosFormatados) {
+                        if (especialidadeMedico.contains(termo) || nomeMedico.contains(termo)) {
+                            termoEncontrado = true;
+                            break;
+                        }
+                    }
+
+
+                    if (diaEncontrado && termoEncontrado) {
+                        String resumo = "Medico: " + nomeMedico +
+                                " | Especialidade: " + especialidadeMedico +
+                                " | Sala: " + sala +
+                                " | CRM: " + crm;
+
+
+                        if (!medicosEncontrados.contains(resumo)) {
                             medicosEncontrados.add(resumo);
-                            medicoEncontrado = false;
                         }
                     }
 
-                    if (medicosEncontrados.isEmpty()) {
-                        System.out.println("Nenhum médico encontrado com a especialidade/dia: " + especialidadeFormatada + " em " + diaFormatado);
-                    }
-
-                } catch (FileNotFoundException e) {
-                    System.err.println("Erro: Arquivo 'medicos.txt' não encontrado.");
+                    isMedicoBlock = false;
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.err.println("Erro: Arquivo 'medicos.txt' não encontrado.");
+        }
+
+        if (medicosEncontrados.isEmpty()) {
+            System.out.println("Nenhum médico encontrado com as especialidades/dias fornecidos.");
         }
 
         return medicosEncontrados;

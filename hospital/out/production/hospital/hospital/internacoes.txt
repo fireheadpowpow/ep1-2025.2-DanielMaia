@@ -1,0 +1,3 @@
+INFORMAÇÕES DE INTERNAÇÃO
+| Paciente: jonas | Médico Resp.: rafael | Data Entrada: 10/10 | Data Saída:  | Quarto: 200 | Custo Diária: R$100,00 | Status: ATIVA | Especial: Sim
+----------------------------
