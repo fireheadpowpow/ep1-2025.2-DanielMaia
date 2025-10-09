@@ -67,10 +67,16 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
    <img width="1415" height="106" alt="image" src="https://github.com/user-attachments/assets/523bd11f-3f61-4da3-9972-1523914f1685" />
 
     Pacientes internados no momento:
-    <img width="1411" height="143" alt="image" src="https://github.com/user-attachments/assets/e5ca5eb4-cb76-4e6d-b45b-320d24f290c4" />
+   <img width="1413" height="739" alt="image" src="https://github.com/user-attachments/assets/baf91551-d393-473e-a08e-98711f35c2c7" />
+
+
+
 
     Estatísticas gerais:
-    <img width="626" height="224" alt="image" src="https://github.com/user-attachments/assets/e1580a89-c4fc-46fd-ba90-0c30230e2514" />
+   <img width="932" height="415" alt="image" src="https://github.com/user-attachments/assets/c1eab231-993f-44fb-a825-822d7c9605a5" />
+
+
+
     se você olhar todos esses arquivos txt aqui ficam todas as estatísticas que o hospital guarda, um exemplo de estatística geral que eu coloquei é se o paciente especial possuí alguma prioridade como gravidez ou obesidade, esta ficará registrada no "pacientes.txt"
 
    - Quantidade de pessoas em um determinado plano de saúde e quanto aquele plano *economizou* das pessoas que o usam:
