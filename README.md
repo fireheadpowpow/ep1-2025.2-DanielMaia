@@ -20,50 +20,80 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
-   [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
+  Compilação : javac Hospital.java classes/*.java txt/*.java
 
 2. **Execução:**  
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+    Execução: java Hospital.java
 
-3. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
-
+4. **Estrutura de Pastas:**  
+  hospital → classes e hospital → txt
+    
+     
 3. **Versão do JAVA utilizada:**  
-   [Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: `java 21`]
+  java version "24.0.2"
 
 ---
 
 ## Vídeo de Demonstração
 
-- [Inserir o link para o vídeo no YouTube/Drive aqui]
+(https://drive.google.com/drive/folders/1Kd-54Vj-tYiQ0guju_bZ2qLOIs8p4yX6)
 
 ---
 
 ## Prints da Execução
 
 1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+   <img width="1188" height="121" alt="image" src="https://github.com/user-attachments/assets/478b1245-dfda-46a5-92e4-de199a40eb6a" />
+
 
 2. Cadastro de Médico:  
-   ![Inserir Print 2](caminho/do/print2.png)
+   <img width="1304" height="239" alt="image" src="https://github.com/user-attachments/assets/33d0a9fa-2e07-498b-ad31-4a235036c8a1" />
+
+   depois abre pra preencher a agenda, tem tudo explicado no vídeo dessa parte
+
+   <img width="1272" height="254" alt="image" src="https://github.com/user-attachments/assets/bcfe0ee3-ea75-41b9-8246-cec837a9ddc2" />
+
+
 
 3. Relatório de ?:  
-   ![Inserir Print 3](caminho/do/print3.png)
+   Pacientes Cadastrados:
+
+<img width="1414" height="64" alt="image" src="https://github.com/user-attachments/assets/4efd1ee6-226c-45e7-9c52-945c2b1a2a99" />
+
+   Médicos cadastrados:
+   <img width="1413" height="639" alt="image" src="https://github.com/user-attachments/assets/713bad6a-5eb5-4f4c-a449-c610d1f73933" />
+
+   Consultas futuras e passadas:
+   <img width="1415" height="106" alt="image" src="https://github.com/user-attachments/assets/523bd11f-3f61-4da3-9972-1523914f1685" />
+
+    Pacientes internados no momento:
+   <img width="1413" height="739" alt="image" src="https://github.com/user-attachments/assets/baf91551-d393-473e-a08e-98711f35c2c7" />
+
+
+
+
+    Estatísticas gerais:
+   <img width="932" height="415" alt="image" src="https://github.com/user-attachments/assets/c1eab231-993f-44fb-a825-822d7c9605a5" />
+
+
+
+    se você olhar todos esses arquivos txt aqui ficam todas as estatísticas que o hospital guarda, um exemplo de estatística geral que eu coloquei é se o paciente especial possuí alguma prioridade como gravidez ou obesidade, esta ficará registrada no "pacientes.txt"
+
+   - Quantidade de pessoas em um determinado plano de saúde e quanto aquele plano *economizou* das pessoas que o usam:
+   - <img width="1414" height="236" alt="image" src="https://github.com/user-attachments/assets/3804b364-895f-45e5-b629-e693a35bd6f4" />
+     apenas guardei os nomes do plano, além de não fazer sentido guardar esse tipo de informação, devia estar escrito isso lá no topo porque este sendo o ultimo topico de todos e talvez sendo obrigatório tenho certeza que assim como eu muitas pessoas ao verem que tinha de ter essa função o hospital não tiveram tempo de realizá-la.
+
 
 ---
 
 ---
 
 ## Observações (Extras ou Dificuldades)
-
-- [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
-
+Ao final do projeto, eu sem querer apaguei alguma coisa da parte do meu código aqui do menu então talvez apresente alugns bugs nessa parte, não sei o que aconteceu, de verdade, e como so foi acontecer isso faltando menos de 1 hora pro envio então não da tempo de ajeitar. Se você quiser ajeito e te mando corrigido depois.
 ---
 
 ## Contato
-
-- [Opcional: E-mail pessoal do aluno.]
-
+danielvallemaia@gmail.com
 ---
 
 ### 🖥️ Descrição do Sistema  
