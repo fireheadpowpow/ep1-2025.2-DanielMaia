@@ -26,8 +26,8 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
     Execução: java Hospital.java
 
 4. **Estrutura de Pastas:**  
-  hospital → classes
-     ↳ txt
+  hospital → classes e hospital → txt
+    
      
 3. **Versão do JAVA utilizada:**  
   java version "24.0.2"
@@ -47,25 +47,47 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 
 2. Cadastro de Médico:  
-   ![Inserir Print 2](caminho/do/print2.png)
+   <img width="1304" height="239" alt="image" src="https://github.com/user-attachments/assets/33d0a9fa-2e07-498b-ad31-4a235036c8a1" />
+
+   depois abre pra preencher a agenda, tem tudo explicado no vídeo dessa parte
+
+   <img width="1272" height="254" alt="image" src="https://github.com/user-attachments/assets/bcfe0ee3-ea75-41b9-8246-cec837a9ddc2" />
+
+
 
 3. Relatório de ?:  
-   ![Inserir Print 3](caminho/do/print3.png)
+   Pacientes Cadastrados:
+
+<img width="1414" height="64" alt="image" src="https://github.com/user-attachments/assets/4efd1ee6-226c-45e7-9c52-945c2b1a2a99" />
+
+   Médicos cadastrados:
+   <img width="1413" height="639" alt="image" src="https://github.com/user-attachments/assets/713bad6a-5eb5-4f4c-a449-c610d1f73933" />
+
+   Consultas futuras e passadas:
+   <img width="1415" height="106" alt="image" src="https://github.com/user-attachments/assets/523bd11f-3f61-4da3-9972-1523914f1685" />
+
+    Pacientes internados no momento:
+    <img width="1411" height="143" alt="image" src="https://github.com/user-attachments/assets/e5ca5eb4-cb76-4e6d-b45b-320d24f290c4" />
+
+    Estatísticas gerais:
+    <img width="626" height="224" alt="image" src="https://github.com/user-attachments/assets/e1580a89-c4fc-46fd-ba90-0c30230e2514" />
+    se você olhar todos esses arquivos txt aqui ficam todas as estatísticas que o hospital guarda, um exemplo de estatística geral que eu coloquei é se o paciente especial possuí alguma prioridade como gravidez ou obesidade, esta ficará registrada no "pacientes.txt"
+
+   - Quantidade de pessoas em um determinado plano de saúde e quanto aquele plano *economizou* das pessoas que o usam:
+   - <img width="1414" height="236" alt="image" src="https://github.com/user-attachments/assets/3804b364-895f-45e5-b629-e693a35bd6f4" />
+     apenas guardei os nomes do plano, além de não fazer sentido guardar esse tipo de informação, devia estar escrito isso lá no topo porque este sendo o ultimo topico de todos e talvez sendo obrigatório tenho certeza que assim como eu muitas pessoas ao verem que tinha de ter essa função o hospital não tiveram tempo de realizá-la.
+
 
 ---
 
 ---
 
 ## Observações (Extras ou Dificuldades)
-
-- [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
-
+Ao final do projeto, eu sem querer apaguei alguma coisa da parte do meu código aqui do menu então talvez apresente alugns bugs nessa parte, não sei o que aconteceu, de verdade, e como so foi acontecer isso faltando menos de 1 hora pro envio então não da tempo de ajeitar. Se você quiser ajeito e te mando corrigido depois.
 ---
 
 ## Contato
-
-- [Opcional: E-mail pessoal do aluno.]
-
+danielvallemaia@gmail.com
 ---
 
 ### 🖥️ Descrição do Sistema  
